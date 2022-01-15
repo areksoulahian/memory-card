@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "clicked": false,
+    "name": "Andrew Cuomo",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Second_Avenue_Subway_first_ride_96th_St_(31192356394)_(cropped).jpg",
+    "occupation": "Governor"
+  },
+  {
+    "id": 2,
+    "clicked": false,
+    "name": "Louis CK",
+    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.B40QzRopL1KpayzmRrrhtgHaJ2%26pid%3DApi&f=1",
+    "occupation": "Comedian"
+  },
+  {
+    "id": 3,
+    "clicked": false,
+    "name": "Harvey Weinstein",
+    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.0WvomiepQCVRbHpY2LyyeAAAAA%26pid%3DApi&f=1",
+    "occupation": "Producer"
+  },
+  {
+    "id": 4,
+    "clicked": false,
+    "name": "Donald Trump",
+    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.kLDNE0qwRbBTM7QWj9j4FAHaJ4%26pid%3DApi&f=1",
+    "occupation": "President"
+  },
+  {
+    "id": 5,
+    "clicked": false,
+    "name": "JK Rowling",
+    "image": "https://www.thefocustrust.com/wp-content/uploads/2020/06/jk-rowling-111.jpeg",
+    "occupation": "Author"
+  },
+  {
+    "id": 6,
+    "clicked": false,
+    "name": "Ellen Degeneres",
+    "image": "https://www.cheatsheet.com/wp-content/uploads/2019/05/Ellen-DeGeneres-3-928x1024.jpg",
+    "occupation": "Actor"
+  },
+  {
+    "id": 7,
+    "clicked": false,
+    "name": "Chris Cuomo",
+    "image": "https://globalnewsink.com/wp-content/uploads/2020/03/72278583_2411795372406438_7827546981785403392_n.jpg",
+    "occupation": "Media Host"
+  },
+  {
+    "id": 8,
+    "clicked": false,
+    "name": "Dave Chappelle",
+    "image": "https://www.essence.com/wp-content/uploads/2013/06/images/2013/06/17/dave-chappelle.jpg",
+    "occupation": "Comedian"
+  }
+]
