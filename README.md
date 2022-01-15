@@ -12,6 +12,8 @@ The objective is to remember not to click on the same face more than once.
 - The CharacterCard. Stylizing the card to have the picture, name and occupation on it.
 
 
-
-
 [Memory Card App React Link](https://areksoulahian.github.io/memory-card/).
+
+
+
+<img width="1440" alt="Memory-card-react-app" src="https://user-images.githubusercontent.com/11644102/149616498-95091f9d-1430-43a6-ab9f-547c19cd38be.png">
