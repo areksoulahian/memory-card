@@ -1,119 +1,232 @@
-.wrapper {
-  height: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-content: flex-start;
-  overflow: auto;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-header {
-  padding: 10px 0;
-  background-color: red;
-  margin-bottom: 5px;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-  color: white;
+:root {
+  --bg: #0f0f23;
+  --bg-card: #1a1a3e;
+  --text: #e0e0ff;
+  --accent: #ff00ff;
+  --accent2: #00ffff;
+  --accent3: #ffcc00;
+  --border: #4a4a8a;
+  --overlay: rgba(15, 15, 35, 0.92);
+}
+
+body {
+  font-family: 'Press Start 2P', monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px 40px;
+}
+
+.header {
   width: 100%;
-}
-
-header h1 {
-  font-size: 30px;
-  margin: 0;
-}
-
-header nav {
+  max-width: 900px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  border-bottom: 4px solid var(--accent);
+  image-rendering: pixelated;
 }
 
-header p {
-  font-weight: bold;
-  padding: 0 10px;
-  margin: 0;
+.header-title {
+  font-size: 18px;
+  color: var(--accent2);
+  text-shadow:
+    3px 3px 0 var(--accent),
+    -1px -1px 0 #000;
+  letter-spacing: 2px;
 }
 
-.jumbotron {
+.header-scores {
+  display: flex;
+  gap: 24px;
+}
+
+.score {
+  font-size: 10px;
+  color: var(--accent3);
+}
+
+.score-value {
+  color: var(--text);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 12px 16px;
+  background: var(--bg-card);
+  border: 4px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  font-family: inherit;
+  image-rendering: pixelated;
+  position: relative;
+}
+
+.game-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 2px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.15s;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 0 var(--accent), 0 10px 20px rgba(255, 0, 255, 0.3);
+  border-color: var(--accent);
+}
+
+.game-card:hover::after {
+  border-color: var(--accent);
+}
+
+.game-card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 0 var(--accent);
+}
+
+.card-emoji {
+  font-size: 52px;
+  line-height: 1;
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.4));
+}
+
+.card-name {
+  font-size: 9px;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
   display: flex;
   align-items: center;
-  background: linear-gradient(to left top, blue, red) center center fixed;
-  background-size: cover;
-  color: #ffffff;
-  height: 50px;
-  text-shadow: 0.25px 0.25px 0.25px #000000;
-  width: 100%;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
 }
 
-.jumbotron p {
+.overlay-box {
   text-align: center;
-  margin: 0 0 20px;
-  font-weight: bold;
-  font-size: 1.5rem;
+  padding: 48px 56px;
+  background: var(--bg-card);
+  border: 4px solid var(--accent);
+  animation: popIn 0.3s ease;
 }
 
-@media only screen and (max-width: 700px) {
-  .jumbotron {
-    margin-top: 120px;
+.overlay-title {
+  font-size: 28px;
+  color: var(--accent3);
+  text-shadow: 3px 3px 0 var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 4px;
+}
+
+.overlay-subtitle {
+  font-size: 12px;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.restart-btn {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 4px 4px 0 var(--accent2);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.restart-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--accent2);
+}
+
+.restart-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--accent2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .jumbotron {
-    margin-top: 110px;
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
-  .jumbotron p {
-    margin: 0;
-    font-size: 15px;
+
+  .header-title {
+    font-size: 14px;
   }
-}
 
-.card {
-  background: #fff;
-  border: 5px solid #fff;
-  border-radius: 2px;
-  margin: 40px 20px;
-  position: relative;
-  height: 300px;
-  width: 250px;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-  transition: box-shadow 0.1s ease-in-out;
-  text-align: left;
-}
+  .game-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 
-.card:hover {
-  box-shadow: 0 12px 24px #999, 0 12px 24px #999;
-  height: 300px;
-  width: 250;
-}
+  .card-emoji {
+    font-size: 40px;
+  }
 
-.card > .img-container {
-  height: 80%;
-  overflow: hidden;
-  text-align: center;
-}
+  .overlay-box {
+    padding: 32px 24px;
+  }
 
-.card > .img-container > img {
-  width: 80%;
-}
-
-.card > .content {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 15px;
-  background: #6caddc;
-}
-
-.card > .img-content > ul {
-  list-style-type: none;
-}
-
-.animate {
-  animation: shake 0.5s;
-}
-
-@media only screen and (max-width: 600px) {
-  .card:hover {
-    height: 300px;
-    width: 250px;
-    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  .overlay-title {
+    font-size: 20px;
   }
 }
